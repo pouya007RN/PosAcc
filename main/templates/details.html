@@ -1,0 +1,139 @@
+{% extends "header.html" %}
+	
+	
+{% block content %}
+<title>مشتریان</title>
+<p></p>
+
+ <button class="btn-floating btn-large waves-effect waves-light red" onclick="print_current_page()">چاپ صفحه</button>
+  <div class="row">
+  
+  <div class="container">
+  <center><h3>مشخصات مشتری</h3></center>
+  <br></br>
+  
+  <table class="responsive-table">
+  
+  
+  <thead>
+		<tr class="z-depth-2 red lighten-3">
+			
+			<th>نام و نام خانوادگی</th>
+			<th>دستگاه</th>
+			<th>شماره سریال</th>
+			<th>ترمینال</th>
+			<th>کد ملی</th>
+			<th>شماره همراه</th>
+			<th>تلفن</th>
+			<th>تاریخ درخواست</th>
+			<th>فروشگاه</th>
+			
+		</tr>
+   </thead>
+		
+		
+		<div class="col s12 m6 l4">
+		
+		 	 
+			<tbody>
+			
+			  <tr class="z-depth-3">
+				
+				<td>{{detail.name}}</td>
+				<td>{{detail.device}}</td>
+				<td>{{detail.serial_no}}</td>
+				<td>{{detail.terminal}}</td>
+				<td>{{detail.melli_id}}</td>
+				<td>{{detail.phone}}</td>
+				<td>{{detail.phone_stat}}</td>
+				<td>{{detail.date}}</td>
+				<td>{{detail.shop}}</td>
+				
+			
+			  </tr>
+			</tbody>
+		  		
+			
+		</div>
+		
+  	   	
+	</table>
+	
+	
+	
+	
+	
+	</div>
+	
+	<center>
+	<br></br>
+	<br></br>
+	<h5>پرداختی های مشتری</h5>
+			<h4>____________________________________________________________________________________</h4>
+			</center>
+			
+	<br></br>
+			
+	<div class="container" >
+	
+	<table class="responsive-table">
+  
+  
+  <thead>
+		<tr class="z-depth-2 yellow lighten-3">
+			
+			<th>مبلغ</th>
+			<th>تاریخ پرداخت</th>
+			
+
+			
+		</tr>
+   </thead>
+		
+		{% for p in paid %}
+		<div class="col s12 m6 l4">
+		
+		 	 
+			<tbody>
+			
+			  <tr class="z-depth-3">
+				
+				<td>{{p.amount}} ریال</td>
+				<td>{{p.date}}</td>
+				
+				
+
+							
+			  </tr>
+			</tbody>
+		  		
+			
+		</div>
+		
+  	{% endfor %}   
+				
+	</table>
+	<div class="container">
+	<div class="container">
+	<form method="post">
+					{% csrf_token %}
+				
+					{{form.as_p}}
+					<center><button class="btn waves-effect waves-light" type="submit" name="action">ثبت</button></center>
+					
+				</div>
+			</form>	
+	
+	</div>
+	</div>
+	
+	<center><h3>مجموع پرداختی : {{total}} ریال</h3></center>
+	
+	</div>
+	
+	
+  </div>
+  
+ <script src="/static/material/JS/print.js"></script>
+	
+{% endblock %}

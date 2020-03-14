@@ -1,0 +1,88 @@
+{% extends "header.html" %}
+	
+	
+{% block content %}
+<title>مشتریان</title>
+<p></p>
+
+ <button class="btn-floating btn-large waves-effect waves-light blue" onclick="print_current_page()">چاپ صفحه</button>
+  <div class="row">
+  
+  <div class="container">
+  <center>
+  <div class="container">
+  
+  
+  
+  <form method="post">
+    {% csrf_token %}
+	<div class="container">{{form.as_p}}</div>
+	<button class="btn waves-effect waves-light" type="submit" name="action">جست و جو</button>   
+	</form>
+	
+	
+	</div>
+	
+	<br></br>
+	
+  <h3>لیست مشتریان</h3></center>
+  <br></br>
+  
+  <table class="responsive-table">
+  
+  
+  <thead>
+		<tr class="z-depth-2 blue lighten-3">
+			
+			<th>نام و نام خانوادگی</th>
+			<th>دستگاه</th>
+			<th>شماره همراه</th>
+			<th>کد ملی</th>
+			
+			<th>جزییات بیشتر</th>
+			
+		</tr>
+   </thead>
+	
+	
+	
+	{% for q in clients %}
+		
+		<div class="col s12 m6 l4">
+		
+		 	 
+			<tbody>
+			
+			  <tr class="z-depth-3">
+				
+				<td>{{q.name}}</td>
+				<td>{{q.device}}</td>
+				<td>{{q.phone}}</td>
+				<td>{{q.melli_id}}</td>
+				
+				<td><a href="/clients/{{q.id}}/" class="btn waves-effect waves-light">ورود به صفحه</a></td>
+				
+				
+			
+			  </tr>
+			</tbody>
+		  		
+			
+		</div>
+		
+  	   
+  
+    {% endfor %}
+	
+	</table>
+	
+	
+	
+	</div>
+	
+	
+  </div>
+  
+ <script src="/static/material/JS/print.js"></script>
+	
+{% endblock %}

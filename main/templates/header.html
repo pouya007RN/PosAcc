@@ -1,0 +1,43 @@
+<head>
+	{% load static %}
+	<link href="{% static 'tinymce/css/prism.css' %}" rel="stylesheet">
+	 
+    <link rel="stylesheet" href="/static/material/CSS/materialize.min.css">
+
+    
+    <script src="/static/material/JS/header.js"></script>
+            
+
+</head>
+
+<body>
+  <div class="navbar-fixed">
+  <nav class="z-depth-2" style="background-color:#1a1f36" >
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">shomal pos</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	  
+			<li><a href="/">خانه</a></li>
+			<li><a href="/clients/">مشتریان</a></li>
+			<li><a href="/stock/">انبار</a></li>			
+			<li><a href="/bank/">درآمد</a></li>
+			<li><a href="/costs/">هزینه</a></li>
+			<li><a href="/admin/">مدیریت و اضافه کردن دستگاه</a></li>
+			
+			
+		
+      </ul> 
+    </div>
+  </nav>
+ </div>
+  
+ 
+	{% block content %}
+	{% endblock %}
+
+
+ 
+ </body>
+
+<script src="{% static 'tinymce/js/prism.js' %}"></script>
+<script>M.AutoInit();</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset="utf-8">
+	<title>ثبت سفارش</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="/static/order/text/css" href="/static/order/css/roboto-font.css">
+	<link rel="stylesheet" type="/static/order/text/css" href="/static/order/fonts/font-awesome-5/css/fontawesome-all.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="/static/order/css/style.css"/>
+</head>
+
+<body class="form-v5">
+   
+	<div class="page-content">
+	
+		<div class="form-v5-content">
+		
+			<form class="form-detail" method="post">
+			{% csrf_token %}
+				
+				{{Con_form.as_p}}
+					<input type="submit" name="register" class="register" value="ثبت">
+					<a href="/"> بازگشت به خانه</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
